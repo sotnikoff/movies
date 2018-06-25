@@ -7,6 +7,7 @@ import VueRouter from 'vue-router'
 
 const routes = [
   { path: '/movies/:id', component: Movie },
+  { path: '/movies', component: Movies },
   { path: '/', component: Movies }
 ]
 
