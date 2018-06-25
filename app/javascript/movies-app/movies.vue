@@ -1,20 +1,17 @@
 <template>
-    <div>
-        <h1>Кинотеатр "Зачётная сосиска"</h1>
-        <h4>Фильмы</h4>
-        <div v-for="movie in movies">
-            <p><b><router-link to="/movies/1">{{ movie.title }}</router-link></b></p>
-            <p>
-                {{ movie.description }}
-            </p>
-            <p>
-                {{ movie.adult_rating }}
-            </p>
-            <router-view>
-
-            </router-view>
-        </div>
+  <div>
+    <h1>Кинотеатр "Зачётная сосиска"</h1>
+    <h4>Фильмы</h4>
+    <div v-for="movie in movies">
+      <p><b><router-link to="/movies/1">{{ movie.title }}</router-link></b></p>
+      <p>
+          {{ movie.description }}
+      </p>
+      <p>
+          {{ movie.adult_rating }}
+      </p>
     </div>
+  </div>
 </template>
 
 <script>
