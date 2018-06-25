@@ -1,0 +1,38 @@
+<template>
+    <div>
+        <h1>Кинотеатр "Зачётная сосиска"</h1>
+        <h4>Фильмы</h4>
+        <div v-for="movie in movies">
+            <p><b><router-link to="/movies/1">{{ movie.title }}</router-link></b></p>
+            <p>
+                {{ movie.description }}
+            </p>
+            <p>
+                {{ movie.adult_rating }}
+            </p>
+            <router-view>
+
+            </router-view>
+        </div>
+    </div>
+</template>
+
+<script>
+  export default {
+    data: function () {
+      return {
+        movies: []
+      }
+    },
+    created: function() {
+      this.getMovies()
+    },
+    methods: {
+      getMovies: function () {
+        this.$http.get('/api/movies').then(function (data) {
+          this.movies = data.body
+        })
+      }
+    }
+  }
+</script>
