@@ -6,7 +6,7 @@ class CreateMovies < ActiveRecord::Migration[5.2]
       t.string :image
       t.references :genre, foreign_key: true
       t.text :description
-      t.integer :adult_rating
+      t.string :adult_rating
       t.references :director, foreign_key: true
       t.references :company, foreign_key: true
       t.integer :movie_length
