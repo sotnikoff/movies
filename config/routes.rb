@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'pages#index'
+
   namespace :api do
     resources :movies, only: %i[show index]
   end
