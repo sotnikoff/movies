@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import App from '../main_app/app.vue'
+import App from '../movies-app/app.vue'
 import VueResource from 'vue-resource'
 
 const el = document.getElementById('app')
