@@ -1,6 +1,9 @@
 <template>
   <div v-if="movie">
     <h1>{{ movie.title }}</h1>
+    <p>
+      <img :src="movie.image.cover.url">
+    </p>
     <blockquote>
       {{ movie.description }}
     </blockquote>

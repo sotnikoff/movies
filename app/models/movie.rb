@@ -4,5 +4,5 @@ class Movie < ApplicationRecord
   belongs_to :company
 
   has_and_belongs_to_many :actors
-  has_one_attached :image
+  mount_uploader :image, CoverUploader
 end
