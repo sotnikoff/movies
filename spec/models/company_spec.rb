@@ -6,11 +6,6 @@ RSpec.describe Company, type: :model do
     expect(company).to be_valid
   end
 
-  it 'fails with short title' do
-    company = Company.new(title: '2', description: 'Legendary company')
-    expect(company).not_to be_valid
-  end
-
   it 'fails with very long title' do
     company = Company.new(title: '20th Century Fox' * 100, description: 'Legendary company')
     expect(company).not_to be_valid
