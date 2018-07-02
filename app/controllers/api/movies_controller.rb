@@ -1,11 +1,11 @@
 module Api
   class MoviesController < ApiController
     def index
-      render json: Movie.all
+      render json: MovieSerializer.represent(Movie.all)
     end
 
     def show
-      render json: Movie.find(params[:id])
+      render json: MovieSerializer.represent(Movie.find(params[:id]))
     end
   end
 end

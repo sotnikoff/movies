@@ -37,6 +37,7 @@ gem 'mini_magick', '~> 4.8'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'carrierwave', '~> 1.0'
+gem 'grape-entity', '~> 0.7.1'
 gem 'webpacker', '~> 3.5'
 
 group :development, :test do
