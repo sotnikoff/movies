@@ -15,7 +15,7 @@ module Movies
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
-    config.eager_load_paths << "#{Rails.root}/app/entities"
+    config.eager_load_paths << "#{Rails.root}/app/serializers"
     config.generators do |g|
       g.test_framework :rspec
     end
