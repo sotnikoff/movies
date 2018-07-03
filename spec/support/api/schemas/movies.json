@@ -1,0 +1,7 @@
+{
+  "type": "array",
+  "items": {
+    "$ref": "movie.json"
+  },
+  "minItems": 0
+}
