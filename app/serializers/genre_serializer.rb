@@ -1,4 +1,4 @@
-class CompanySerializer < Grape::Entity
+class GenreSerializer < Grape::Entity
   expose :id
   expose :title
   expose :description
