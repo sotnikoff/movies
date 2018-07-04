@@ -7,6 +7,13 @@
     <blockquote>
       {{ movie.description }}
     </blockquote>
+    <div class="shows" v-if="movie.shows.length > 0">
+      <ul>
+        <li v-for="show in movie.shows">
+          {{ show.hall.title }} at {{ show.show_time }}
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 

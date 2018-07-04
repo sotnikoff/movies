@@ -5,7 +5,7 @@ module Api
     end
 
     def show
-      render json: MovieSerializer.represent(Movie.find(params[:id]))
+      render json: MovieExtendedSerializer.represent(Movie.find(params[:id]))
     end
   end
 end

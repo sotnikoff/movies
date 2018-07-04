@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :show do
-    hall nil
-    movie nil
+    hall
+    movie
+    show_time Time.new
   end
 end
