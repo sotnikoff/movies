@@ -17,7 +17,7 @@ RSpec.describe Api::MoviesController, type: :controller do
     it 'returns Movie' do
       get :show, params: { id: @movie.id }
       expect(response.status).to eq 200
-      expect(response).to match_json_schema 'movie'
+      expect(response).to match_json_schema 'movie_extended'
     end
   end
 end

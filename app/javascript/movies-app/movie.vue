@@ -7,9 +7,9 @@
     <blockquote>
       {{ movie.description }}
     </blockquote>
-    <div class="shows" v-if="movie.shows.length > 0">
+    <div class="shows" v-if="movie.upcoming_shows.length > 0">
       <ul>
-        <li v-for="show in movie.shows">
+        <li v-for="show in movie.upcoming_shows">
           {{ show.hall.title }} at {{ show.show_time }}
         </li>
       </ul>

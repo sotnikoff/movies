@@ -7,5 +7,5 @@ class MovieExtendedSerializer < Grape::Entity
   expose :director, using: DirectorSerializer
   expose :genre, using: GenreSerializer
   expose :release_date
-  expose :shows, using: ShowSerializer
+  expose :upcoming_shows, using: ShowSerializer
 end
