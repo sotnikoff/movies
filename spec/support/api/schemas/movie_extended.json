@@ -1,17 +1,24 @@
 {
   "type": "object",
-  "required": ["id", "title", "description", "company", "genre", "director"],
   "properties": {
-    "id": { "type": "integer" },
-    "title": { "type": "string" },
-    "description": { "type": "string" },
-    "rating": { "type": "integer" },
-    "adult_rating": { "type": "string" },
-    "movie_length": { "type": "integer" },
-    "release_date": { "type": "string" },
-    "director": { "$ref": "director.json" },
-    "company": { "$ref": "company.json" },
-    "genre": { "$ref": "genre.json" },
-    "shows": { "type": "array" }
+    "movie:": {
+      "type": "object",
+      "required": ["id", "title", "description", "company", "genre", "director"],
+      "properties": {
+        "id": { "type": "integer" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "rating": { "type": "integer" },
+        "adult_rating": { "type": "string" },
+        "movie_length": { "type": "integer" },
+        "release_date": { "type": "string" },
+        "director": { "$ref": "director.json" },
+        "company": { "$ref": "company.json" },
+        "genre": { "$ref": "genre.json" }
+      }
+    },
+    "shows": {
+      "type": "array"
+    }
   }
 }

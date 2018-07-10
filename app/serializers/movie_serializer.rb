@@ -3,8 +3,7 @@ class MovieSerializer < Grape::Entity
   expose :title
   expose :description
   expose :image
-  expose :company, using: CompanySerializer
-  expose :director, using: DirectorSerializer
-  expose :genre, using: GenreSerializer
   expose :release_date
+  expose :adult_rating
+  expose :rating
 end

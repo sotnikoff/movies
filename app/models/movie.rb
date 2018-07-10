@@ -10,8 +10,9 @@ class Movie < ApplicationRecord
   mount_uploader :image, CoverUploader
 
   scope :with_shows, -> { includes(:shows) }
+  scope :extended_movies, -> { includes(:company, :director, :genre) }
 
-  def upcoming_shows
-    shows.upcoming
+  def halls_for_upcoming_shows
+    halls.distinct.where('shows.show_time > ? and shows.show_time < ?', Time.now, Time.now + 3.days)
   end
 end

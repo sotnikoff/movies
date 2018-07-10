@@ -7,13 +7,6 @@
     <blockquote>
       {{ movie.description }}
     </blockquote>
-    <div class="shows" v-if="movie.upcoming_shows.length > 0">
-      <ul>
-        <li v-for="show in movie.upcoming_shows">
-          {{ show.hall.title }} at {{ show.show_time }}
-        </li>
-      </ul>
-    </div>
   </div>
 </template>
 
@@ -21,7 +14,8 @@
   export default {
     data: function () {
       return {
-        movie: null
+        movie: null,
+        shows: []
       }
     },
     created: function() {
@@ -29,9 +23,11 @@
     },
     methods: {
       getMovie: function () {
-        this.$http.get('/api/movies/' + this.$route.params.id).then(function (data) {
-          this.movie = data.body
-        })
+        this.$http.get('/api/movies/' + this.$route.params.id)
+          .then(function (data) {
+            this.movie = data.body.movie
+            this.shows = data.body.shows
+          })
       }
     }
   }
