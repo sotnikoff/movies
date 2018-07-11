@@ -14,5 +14,6 @@ class Movie < ApplicationRecord
 
   def halls_for_upcoming_shows
     halls.distinct.where('shows.show_time > ? and shows.show_time < ?', Time.now, Time.now + 3.days)
+      .order('title ASC')
   end
 end
