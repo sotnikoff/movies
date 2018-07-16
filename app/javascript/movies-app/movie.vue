@@ -8,7 +8,8 @@
       {{ movie.description }}
     </blockquote>
     <div class="halls">
-      <hall :hall="hall" :shows="shows" v-for="hall in halls" />
+      <h4>Сеансы в залах</h4>
+      <hall :hall="hall" :shows="shows" v-for="hall in halls" :key="hall.id" />
     </div>
   </div>
 </template>

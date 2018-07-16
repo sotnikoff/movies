@@ -1,6 +1,5 @@
 <template>
   <div class="hall">
-    <h4>Сеансы в залах</h4>
     <h5>{{ hall.title }}</h5>
     <ul>
       <li v-for="show in filterShows">
