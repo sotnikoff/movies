@@ -21,25 +21,24 @@
     components: {
       'hall': Hall
     },
+    computed: {
+      movie: function () {
+        return this.$store.default.getters.getMovie
+      },
+      halls: function () {
+        return this.$store.default.getters.getHalls
+      },
+      shows: function () {
+        return this.$store.default.getters.getShows
+      }
+    },
     data: function () {
       return {
-        movie: null,
-        shows: [],
-        halls: []
+
       }
     },
     created: function() {
-      this.getMovie()
+      this.$store.default.dispatch('setMovie', this.$route.params.id)
     },
-    methods: {
-      getMovie: function () {
-        this.$http.get('/api/movies/' + this.$route.params.id)
-          .then(function (data) {
-            this.movie = data.body.movie
-            this.shows = data.body.shows
-            this.halls = data.body.halls
-          })
-      }
-    }
   }
 </script>
