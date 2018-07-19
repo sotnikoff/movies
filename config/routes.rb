@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'pages#index'
+  get '/reservations', to: 'pages#reservations'
 
   namespace :api, format: false do
     resources :movies, only: %i[show index]

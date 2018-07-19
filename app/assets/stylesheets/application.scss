@@ -13,3 +13,23 @@
  *= require_tree .
  *= require_self
  */
+
+.reservations-table {
+	
+}
+
+.seat {
+	width: 20px;
+	height: 20px;
+	border: 1px black solid;
+}
+
+.reserved {
+	border: 1px red solid;
+	background-color: red;
+}
+
+.selected {
+	border: 1px blue solid;
+	background-color: blue;
+}
