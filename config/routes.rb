@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   namespace :api, format: false do
     resources :movies, only: %i[show index]
+    post 'create_order', to: 'orders#create_order', as: 'create_order'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
