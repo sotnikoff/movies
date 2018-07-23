@@ -30,41 +30,6 @@
   export default {
     data: function (){
       return {
-        reservations: [
-          {
-            id: 1,
-            row: 1,
-            seat: 4
-          },
-          {
-            id: 2,
-            row: 1,
-            seat: 5
-          },
-          {
-            id: 3,
-            row: 1,
-            seat: 6
-          },
-          {
-            id: 4,
-            row: 1,
-            seat: 7
-          },
-          {
-            id: 4,
-            row: 5,
-            seat: 2
-          }
-        ],
-        hall: {
-          id: 1,
-          title: 'Hall #1 IMAX',
-          size: {
-            rows: 10,
-            seats: 15
-          }
-        },
         hallSeats: {
           rows: []
         },
@@ -82,8 +47,20 @@
         }
       }
     },
+    computed: {
+      reservations: function () {
+        return this.$store.default.getters.getReservations
+      },
+      hall: function () {
+        return this.$store.default.getters.getHall
+      }
+    },
     methods: {
+      getThis: function () {
+        return this
+      },
       gererateHallGridObject: function () {
+        console.log(this.hall)
         for(let r = 1; r <= this.hall.size.rows; r++){
           let row = { seats: [], row: r }
           for(let s = 1; s <= this.hall.size.seats; s++){
@@ -124,7 +101,10 @@
       }
     },
     created: function () {
-      this.gererateHallGridObject()
+      this.$store.default.dispatch('setShowInfo', this.$route.params.show)
+        .then(function () {
+          this.gererateHallGridObject()
+        })
     }
   }
 </script>
