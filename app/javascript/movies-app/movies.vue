@@ -24,18 +24,16 @@
   export default {
     data: function () {
       return {
-        movies: []
+
+      }
+    },
+    computed: {
+      movies: function () {
+        return this.$store.default.getters.getMovies
       }
     },
     created: function() {
-      this.getMovies()
-    },
-    methods: {
-      getMovies: function () {
-        this.$http.get('/api/movies').then(function (data) {
-          this.movies = data.body
-        })
-      }
+      this.$store.default.dispatch('setMovies')
     }
   }
 </script>
