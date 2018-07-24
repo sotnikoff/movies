@@ -14,9 +14,13 @@ const store = new Vuex.Store({
       reservations: [],
       movie: {}
     },
-    selectedSeats: []
+    selectedSeats: [],
+    orderID: null
   },
   mutations: {
+    setOrderID: function (state, id) {
+      state.orderID = id
+    },
     setMovie: function (state, movie) {
       state.show.movie = movie
     },
@@ -64,6 +68,8 @@ const store = new Vuex.Store({
           phone: data.phone._value,
           reservations_attributes: seats
         }
+      }).then(function(data){
+        context.commit('setOrderID', data.data.id)
       })
     },
     setShowInfo: function (context, show) {
@@ -87,6 +93,9 @@ const store = new Vuex.Store({
     }
   },
   getters: {
+    getOrderID: function (state) {
+      return state.orderID
+    },
     getReservations: function (state) {
       return state.show.reservations
     },

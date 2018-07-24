@@ -5,12 +5,14 @@ import Vuex from 'vuex'
 import Reservations from '../reservations-app/reservations'
 import HallReservation from '../reservations-app/hall-reservation'
 import Order from '../reservations-app/order'
+import Success from '../reservations-app/success'
 
 const el = document.getElementById('app')
 
 const routes = [
   { path: '/', component: Reservations },
   { path: '/order', component: Order},
+  { path: '/success', component: Success},
   { path: '/:show', component: HallReservation }
 ]
 
