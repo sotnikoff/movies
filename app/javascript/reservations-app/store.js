@@ -6,7 +6,9 @@ const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute
 Axios.defaults.headers.common['X-CSRF-Token'] = csrfToken
 
 const store = new Vuex.Store({
-  plugins: [createPersistedState()],
+  plugins: [createPersistedState({
+    key: 'reservations'
+  })],
   state: {
     show: {
       show: {},
