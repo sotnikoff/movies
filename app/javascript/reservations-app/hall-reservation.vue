@@ -9,22 +9,15 @@
     
     <h4>{{ hall.title }}</h4>
     <table class="reservations-table" v-if="hall.size !== undefined" >
-      <tr v-for="row in hall.size.rows">
+      <tr v-for="row in hall.size.rows" :key="row">
         <seat v-for="seat in hall.size.seats"
+          :key="seat"
           :row="row"
           :seat="seat"
           :reserved="isReserved(row, seat)" />
       </tr>
     </table>
-    <form v-on:submit.prevent="onSubmit">
-      <p>
-        <label for="email">Email</label>
-        <input type="email" id="email" v-model="email">
-      </p>
-      <p>
-        <label for="phone">Phone</label>
-        <input type="tel" id="phone" v-model="phone">
-      </p>
+    <form v-on:submit.prevent="$router.push('order')">
       <p>
         <button type="submit">Заказать</button>
       </p>
@@ -38,12 +31,7 @@
   import moment from 'moment'
 
   export default {
-    data: function (){
-      return {
-        email: '',
-        phone: ''
-      }
-    },
+    
     components: {
       Seat
     },
@@ -62,16 +50,6 @@
       }
     },
     methods: {
-      onSubmit: function () {
-        const self = this
-        this.$store.default.dispatch('createOrder', {email, phone})
-          .then(function(){
-            self.$store.default.dispatch('purgeSeats')
-            self.$store.default.dispatch('setShowInfo', self.$route.params.show)
-          }).catch(function(e){
-            console.log(e)
-          })
-      },
       formattedShowTime: function(time) {
         return moment(time).format('lll')
       },

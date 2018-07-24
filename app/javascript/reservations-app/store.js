@@ -1,10 +1,12 @@
 import Vuex from 'vuex'
 import Axios from 'axios'
+import createPersistedState from 'vuex-persistedstate'
 
 const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
 Axios.defaults.headers.common['X-CSRF-Token'] = csrfToken
 
 const store = new Vuex.Store({
+  plugins: [createPersistedState()],
   state: {
     show: {
       show: {},

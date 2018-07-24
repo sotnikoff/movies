@@ -4,11 +4,13 @@ import VueRouter from 'vue-router'
 import Vuex from 'vuex'
 import Reservations from '../reservations-app/reservations'
 import HallReservation from '../reservations-app/hall-reservation'
+import Order from '../reservations-app/order'
 
 const el = document.getElementById('app')
 
 const routes = [
   { path: '/', component: Reservations },
+  { path: '/order', component: Order},
   { path: '/:show', component: HallReservation }
 ]
 
