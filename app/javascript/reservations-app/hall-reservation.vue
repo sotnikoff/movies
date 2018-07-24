@@ -1,6 +1,13 @@
 <template>
   <div>
-    <h1>{{ hall.title }}</h1>
+    <h1>Заказ билетов</h1>
+    <div>
+      <h2>{{ movie.title }}</h2>
+      <h3 v-if="show.show_time" >Показ состоится {{ formattedShowTime(show.show_time) }}</h3>
+      <img :src="movie.image.cover.url" v-if="movie.image"/>
+    </div>
+    
+    <h4>{{ hall.title }}</h4>
     <table class="reservations-table" v-if="hall.size !== undefined" >
       <tr v-for="row in hall.size.rows">
         <seat v-for="seat in hall.size.seats"
@@ -28,6 +35,8 @@
 
 <script>
   import Seat from './seat'
+  import moment from 'moment'
+
   export default {
     data: function (){
       return {
@@ -62,6 +71,9 @@
           }).catch(function(e){
             console.log(e)
           })
+      },
+      formattedShowTime: function(time) {
+        return moment(time).format('lll')
       },
       isReserved: function (row, seat) {
         for(let i=0; i < this.reservations.length; i++){
