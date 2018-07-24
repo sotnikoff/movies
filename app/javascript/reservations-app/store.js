@@ -49,7 +49,6 @@ const store = new Vuex.Store({
   },
   actions: {
     createOrder: function (context, data) {
-      const showID = this.getters.getShow.id
       const seats = this.getters.getSelectedSeats
 
       if(seats.length === 0){
@@ -61,8 +60,7 @@ const store = new Vuex.Store({
         order: {
           email: data.email._value,
           phone: data.phone._value,
-          show_id: showID,
-          ordered_seats: seats
+          reservations_attributes: seats
         }
       })
     },

@@ -11,11 +11,14 @@
     methods: {
       onClick: function () {
         if(!this.reserved){
-          this.$store.default.dispatch('select', {row: this.row, seat: this.seat})
+          this.$store.default.dispatch('select', {row: this.row, seat: this.seat, show_id: this.showID})
         }
       }
     },
     computed: {
+      showID: function () {
+        return this.$store.default.getters.getShow.id
+      },
       selected: function () {
         return this.$store.default.getters.isSelected({row: this.row, seat: this.seat})
       }

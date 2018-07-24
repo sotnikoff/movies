@@ -1,8 +1,10 @@
 module Api
   class OrdersController < ApiController
     def create_order
-      if CreateOrder.call(order_params)
+      if Order.create(order_params)
         render json: { status: 'created' }
+      else
+        render json: { status: 'error' }, status: :bad_request
       end
     end
 
@@ -10,7 +12,7 @@ module Api
 
     def order_params
       params.require(:order)
-        .permit(:email, :show_id, :phone, ordered_seats: %i[row seat])
+        .permit(:email, :show_id, :phone, reservations_attributes: %i[row seat show_id])
     end
   end
 end
